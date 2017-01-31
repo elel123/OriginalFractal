@@ -1,22 +1,33 @@
 public void setup()
 {
-	background(255);
-	size(500, 500);
+	background(0);
+	size(1000, 1000);
 }
 public void draw()
 {
-	fractal(100, 400, 300);
+	fractal(400, 600, 200);
 }
-public void fractal(int x, int y, int size)
+public void fractal(int x, int y, int siz)
 {
-	if(size <= 600)
+	fill(0);
+	stroke(255);
+	triangle(x, y, x + siz/2, y - siz, x + siz, y);
+	if(siz > 10)
 	{
-		fill(0);
-		triangle(x, y, x + size/2, y - size, x + size, y);
+		fractal(x - siz/2, y, siz/2);
+		fractal(x, y - siz, siz/2);
+		fractal(x - siz/4, y + siz/2, siz/2);
+		fractal(x + (3*siz)/4, y + siz/2, siz/2);
+		fractal(x + siz, y, siz/2);
+		fractal(x + siz/2, y - siz, siz/2);
+
+		/*
+		fractal(x - siz/4, y - siz/2, siz/2);
+		fractal(x + siz/4, y + siz/2, siz/2);
+		fractal(x + (3*siz)/4, y - siz/2, siz/2);
+		*/
 	}
-	else
-	{
-		fractal(x - size/4, y - size/2, size/2);
-	}
+	//else
+		//fractal(x - siz/4, y - siz/2, siz/2);
 
 }
