@@ -1,8 +1,10 @@
 float r = 0;
+float s = 0;
 public void setup()
 {
 	background(0);
 	size(1000, 1000);
+	frameRate(50);
 }
 public void draw()
 {
@@ -10,7 +12,8 @@ public void draw()
 	translate(width/2, height/2);
 	r += 0.05;
 	rotate(r); //to rotate around a pt, use translate(500, 500) and rotate
-	fractal(-200, 140, 400);
+	s += 0.05;
+	fractal((float)(-200 * Math.sin(s)), (float)(140 * Math.sin(s)), (float)(400 * Math.sin(s)));
 	fill(255, 0, 0);
 	strokeWeight(15);
 	//point(0, 0);
